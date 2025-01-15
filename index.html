@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure DevOps Training</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0078D4, #002244);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s ease infinite;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            color: #1d1d1f;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+            color: #004E8C;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content h2 {
+            font-size: 1.8rem;
+            color: #1d1d1f;
+            margin-bottom: 15px;
+        }
+
+        .module-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .module-list li {
+            background: #f0f0f0;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .module-list li:hover {
+            background: #e0e0e0;
+            transform: translateY(-5px);
+        }
+
+        /* Sidebar styles */
+        .slide-sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: #1d1d1f;
+            color: #fff;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            padding: 20px;
+        }
+
+        .slide-sidebar.open {
+            right: 0;
+        }
+
+        .slide-toggle {
+            position: fixed;
+            top: 20px;
+            left: calc(100% - 60px);
+            width: 50px;
+            height: 50px;
+            background: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .slide-toggle:hover {
+            background: #005bb5;
+        }
+
+        .sidebar-content {
+            margin-top: 20px;
+        }
+
+        .sidebar-content p {
+            font-size: 1rem;
+            margin: 15px 0;
+        }
+
+        .sidebar-content p strong {
+            color: #FFD700;
+        }
+    </style>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('slideSidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Azure DevOps Training</h1>
+            <p>Trainer: Mahendar | Duration: 3 Weeks</p>
+        </div>
+        <div class="content">
+            <h2>Course Content</h2>
+            <ul class="module-list">
+                <li>Module 1: Introduction to Microsoft Azure</li>
+                <li>Module 2: Introduction to Azure DevOps and Comparison of Third-Party DevOps with Cloud-Based DevOps</li>
+                <li>Module 3: Introduction & Hands-On with Azure Boards</li>
+                <li>Module 4: Introduction to Azure CI/CD with Demo</li>
+                <li>Module 5: Introduction to SonarQube, Installation, and Integration with Azure Pipeline</li>
+                <li>Module 6: Introduction to Azure App Service and Deployment of .NET Projects</li>
+                <li>Module 7: Demo on Docker Image Creation and Push to ACR Through Azure Pipeline</li>
+                <li>Module 8: Azure Project-Level and Organization-Level Configuration</li>
+                <li>Module 9: Azure Repos and Branching System</li>
+                <li>Module 10: Introduction to Terraform & Setup and Demo</li>
+                <li>Module 11: Static Website Hosting using Blob Storage and Azure Pipeline</li>
+                <li>Module 12: Docker Website Hosting on a VM</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-sidebar" id="slideSidebar">
+        <button class="slide-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar-content">
+            <p><strong>Price:</strong> ₹15,000 per person</p>
+            <p><strong>Mode:</strong> Online</p>
+            <p><strong>Tool for Training:</strong> Google Meet</p>
+        </div>
+    </div>
+</body>
+</html>
