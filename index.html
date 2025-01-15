@@ -5,165 +5,271 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azure DevOps Training</title>
     <style>
-        /* Global Styles */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #0078D4, #002244);
-            background-size: 400% 400%;
-            animation: backgroundAnimation 15s ease infinite;
-            color: #fff;
-            overflow: hidden;
-        }
-
-        @keyframes backgroundAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            background: linear-gradient(135deg, #1E3C72, #2A5298);
+            color: #333;
+            line-height: 1.6;
+            background-size: cover;
+            background-attachment: fixed;
         }
 
         .container {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 50px auto;
             padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 10px solid #0078D4;
+        }
+
+        header {
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            color: #1d1d1f;
+            margin-bottom: 30px;
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 0 0 10px;
-            color: #004E8C;
+        header h1 {
+            font-size: 2.8rem;
+            color: #0078D4;
+            margin: 0;
+            letter-spacing: 2px;
         }
 
-        .header p {
+        header p {
             font-size: 1.2rem;
             color: #555;
         }
 
-        .content {
-            margin-top: 20px;
+        /* Trainer and Duration Box */
+        .trainer-duration-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        .content h2 {
+        .trainer-box, .duration-box {
+            background: linear-gradient(135deg, #00C9A7, #1E6E6A);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 48%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .trainer-box:hover, .duration-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .trainer-box p, .duration-box p {
+            margin: 5px 0;
+        }
+
+        .trainer-box strong, .duration-box strong {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Details Box */
+        .contact-box {
+            display: flex;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #0078D4, #66b3ff);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .contact-box div {
+            width: 45%;
+            text-align: left;
+        }
+
+        .contact-box p {
+            margin: 5px 0;
+        }
+
+        .contact-box strong {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+
+        /* Animation for sliding effect */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Information Boxes for Price, Mode, and Tool for Training */
+        .info-box-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            flex: 1;
+            padding: 20px;
+            border-radius: 12px;
+            margin-right: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            transition: transform 0.3s ease-in-out, background 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, #ff6347, #ff4500); /* Tomato to OrangeRed */
+            color: white;
+        }
+
+        .mode-box {
+            background: linear-gradient(135deg, #0fddc1, #1797e6); /* LimeGreen to ForestGreen */
+            color: white;
+        }
+
+        .tool-box {
+            background: linear-gradient(135deg, #8a2be2, #6a5acd); /* BlueViolet to SlateBlue */
+            color: white;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
             font-size: 1.8rem;
-            color: #1d1d1f;
+            color: #444;
+            border-bottom: 2px solid #0078D4;
+            padding-bottom: 5px;
             margin-bottom: 15px;
         }
 
-        .module-list {
+        ul {
             list-style: none;
             padding: 0;
         }
 
-        .module-list li {
-            background: #f0f0f0;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .module-list li:hover {
-            background: #e0e0e0;
-            transform: translateY(-5px);
-        }
-
-        /* Sidebar styles */
-        .slide-sidebar {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            height: 100%;
-            background: #1d1d1f;
-            color: #fff;
-            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
-            transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            padding: 20px;
-        }
-
-        .slide-sidebar.open {
-            right: 0;
-        }
-
-        .slide-toggle {
-            position: fixed;
-            top: 20px;
-            left: calc(100% - 60px);
-            width: 50px;
-            height: 50px;
-            background: #0078d4;
+        /* Modify the module boxes */
+        .module-box {
+            background: linear-gradient(135deg, #0e98ba, #0a50a0); /* Updated color for course section */
             color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            font-size: 1.5rem;
-            transition: background 0.3s ease;
-        }
-
-        .slide-toggle:hover {
-            background: #005bb5;
-        }
-
-        .sidebar-content {
-            margin-top: 20px;
-        }
-
-        .sidebar-content p {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
             font-size: 1rem;
-            margin: 15px 0;
+            text-align: left;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .sidebar-content p strong {
-            color: #FFD700;
+        .module-box:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #2469f4, #3e087b); /* Keep the same color on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #d62c54;
+        }
+
+        /* Animation for fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
     </style>
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('slideSidebar');
-            sidebar.classList.toggle('open');
-        }
-    </script>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <h1>Azure DevOps Training</h1>
-            <p>Trainer: Mahendar | Duration: 3 Weeks</p>
-        </div>
-        <div class="content">
-            <h2>Course Content</h2>
-            <ul class="module-list">
-                <li>Module 1: Introduction to Microsoft Azure</li>
-                <li>Module 2: Introduction to Azure DevOps and Comparison of Third-Party DevOps with Cloud-Based DevOps</li>
-                <li>Module 3: Introduction & Hands-On with Azure Boards</li>
-                <li>Module 4: Introduction to Azure CI/CD with Demo</li>
-                <li>Module 5: Introduction to SonarQube, Installation, and Integration with Azure Pipeline</li>
-                <li>Module 6: Introduction to Azure App Service and Deployment of .NET Projects</li>
-                <li>Module 7: Demo on Docker Image Creation and Push to ACR Through Azure Pipeline</li>
-                <li>Module 8: Azure Project-Level and Organization-Level Configuration</li>
-                <li>Module 9: Azure Repos and Branching System</li>
-                <li>Module 10: Introduction to Terraform & Setup and Demo</li>
-                <li>Module 11: Static Website Hosting using Blob Storage and Azure Pipeline</li>
-                <li>Module 12: Docker Website Hosting on a VM</li>
-            </ul>
-        </div>
-    </div>
+        </header>
 
-    <div class="slide-sidebar" id="slideSidebar">
-        <button class="slide-toggle" onclick="toggleSidebar()">☰</button>
-        <div class="sidebar-content">
-            <p><strong>Price:</strong> ₹15,000 per person</p>
-            <p><strong>Mode:</strong> Online</p>
-            <p><strong>Tool for Training:</strong> Google Meet</p>
+        <!-- Trainer and Duration Boxes -->
+        <div class="trainer-duration-container">
+            <div class="trainer-box">
+                <strong>Trainer</strong>
+                <p>Mahendar</p>
+            </div>
+            <div class="duration-box">
+                <strong>Duration</strong>
+                <p>3 Weeks</p>
+            </div>
         </div>
+
+        <!-- Contact Details Box -->
+        <div class="contact-box">
+            <div>
+                <strong>Contact Details</strong>
+                <p><strong>Phone:</strong> 7569695003</p>
+                <p><strong>Email:</strong> <a href="mailto:ar.mahendar1999@gmail.com" style="color: white; text-decoration: underline;">ar.mahendar1999@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- Information Boxes for Price, Mode, and Tool for Training -->
+        <div class="info-box-container">
+            <div class="info-box price-box">
+                <strong>Price</strong>
+                <p>₹20k per person</p>
+            </div>
+            <div class="info-box mode-box">
+                <strong>Mode</strong>
+                <p>Online</p>
+            </div>
+            <div class="info-box tool-box">
+                <strong>Tool for Training</strong>
+                <p>Google Meet</p>
+            </div>
+        </div>
+
+        <!-- Course Content -->
+        <section>
+            <h2>Course Content</h2>
+            <ul>
+                <li class="module-box">Module 1: Introduction to Microsoft Azure</li>
+                <li class="module-box">Module 2: Introduction to Azure DevOps and Comparison of Third-Party DevOps with Cloud-Based DevOps</li>
+                <li class="module-box">Module 3: Introduction & Hands-On with Azure Boards</li>
+                <li class="module-box">Module 4: Introduction to Azure CI/CD with Demo</li>
+                <li class="module-box">Module 5: Introduction to SonarQube, Installation, and Integration with Azure Pipeline</li>
+                <li class="module-box">Module 6: Introduction to Azure App Service and Deployment of .NET Projects</li>
+                <li class="module-box">Module 7: Demo on Docker Image Creation and Push to ACR Through Azure Pipeline</li>
+                <li class="module-box">Module 8: Azure Project-Level and Organization-Level Configuration</li>
+                <li class="module-box">Module 9: Azure Repos and Branching System</li>
+                <li class="module-box">Module 10: Introduction to Terraform & Setup and Demo</li>
+                <li class="module-box">Module 11: Static Website Hosting using Blob Storage and Azure Pipeline</li>
+                <li class="module-box">Module 12: Docker Website Hosting on a VM</li>
+            </ul>
+        </section>
+
+        <footer>
+            &copy; 2025 Azure DevOps Training. All rights reserved.
+        </footer>
     </div>
 </body>
 </html>
